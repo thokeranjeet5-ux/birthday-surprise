@@ -6,152 +6,215 @@
 <title>A Little Surprise</title>
 
 <style>
-    * {
-        box-sizing: border-box;
-    }
 
-    body {
-        margin: 0;
-        padding: 0;
-        background: #fff0f3;
-        font-family: Arial, sans-serif;
-        text-align: center;
-        color: #2b2d42;
-        overflow: hidden;
-    }
+* {
+    box-sizing: border-box;
+}
 
-    #app {
-        width: 100%;
-        min-height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
 
-    .screen {
-        width: 100%;
-        max-width: 400px;
-        min-height: 100vh;
-        padding: 20px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
+body {
+    background: #fff0f3;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color: #2b2d42;
+}
 
-    .question {
-        font-size: 22px;
-        font-weight: bold;
-        line-height: 1.4;
-        max-width: 350px;
-        margin-bottom: 30px;
-    }
+#screen {
+    width: 100%;
+    min-height: 100vh;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
-    .birthday {
-        font-size: 30px;
-        font-weight: bold;
-        color: #d90429;
-        line-height: 1.25;
-        max-width: 350px;
-    }
+/* ---------------- TEXT ---------------- */
 
-    .subtitle {
-        font-size: 17px;
-        margin-top: 18px;
-        line-height: 1.5;
-    }
+.opening-text {
+    font-size: 15px;
+    font-weight: bold;
+    max-width: 350px;
+    line-height: 1.4;
+    margin-bottom: 30px;
+}
 
-    .buttons {
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-    }
+.are-you-sure {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
 
-    button {
-        border: none;
-        border-radius: 8px;
-        padding: 12px 28px;
-        font-size: 16px;
-        font-weight: bold;
-        color: white;
-        cursor: pointer;
-        min-width: 100px;
-    }
+.birthday-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #d90429;
+    max-width: 350px;
+    line-height: 1.3;
+    margin-bottom: 20px;
+}
 
-    .yes {
-        background: #ff4d6d;
-    }
+.birthday-subtitle {
+    font-size: 13px;
+    max-width: 350px;
+    line-height: 1.4;
+}
 
-    .no {
-        background: #8d99ae;
-    }
+/* ---------------- BUTTONS ---------------- */
 
-    button:active {
-        transform: scale(0.96);
-    }
+.button-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-    .photo {
-        max-width: 100%;
-        max-height: 70vh;
-        object-fit: contain;
-        border-radius: 10px;
-    }
+button {
+    border: none;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    border-radius: 2px;
+    padding: 6px 15px;
+    min-width: 90px;
+    cursor: pointer;
+}
 
-    .photo-caption {
-        font-size: 17px;
-        font-weight: bold;
-        margin-top: 18px;
-        line-height: 1.4;
-    }
+.yes-button {
+    background: #ff4d6d;
+    margin-right: 10px;
+}
 
-    .shayari-card {
-        width: 100%;
-        max-width: 350px;
-        min-height: 300px;
-        background: white;
-        border: 1px solid #ddd;
-        border-radius: 12px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 25px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    }
+.no-button {
+    background: #8d99ae;
+    margin-left: 10px;
+}
 
-    .shayari {
-        font-size: 18px;
-        font-style: italic;
-        line-height: 1.7;
-        white-space: pre-line;
-    }
+button:active {
+    transform: scale(0.96);
+}
 
-    .shayari.small {
-        font-size: 16px;
-        line-height: 1.7;
-    }
+/* ---------------- PHOTO ---------------- */
 
-    .ending-title {
-        font-size: 30px;
-        font-weight: bold;
-        color: #d90429;
-        margin: 15px 0;
-    }
+.photo-screen {
+    width: 100%;
+    min-height: 100vh;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-    .ending-text {
-        font-size: 20px;
-        font-style: italic;
-    }
+.photo {
+    display: block;
+    max-width: 360px;
+    max-height: 520px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
 
-    .normal-text {
-        font-size: 18px;
-        line-height: 1.6;
-    }
+/* ---------------- SHAYARI ---------------- */
+
+.shayari-card {
+    width: 100%;
+    max-width: 350px;
+    min-height: 300px;
+    background: #ffffff;
+    border: 1px solid #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.shayari-text {
+    font-size: 13px;
+    font-style: italic;
+    color: #2b2d42;
+    line-height: 1.6;
+    max-width: 310px;
+}
+
+.shayari-text-small {
+    font-size: 11px;
+    font-style: italic;
+    color: #2b2d42;
+    line-height: 1.7;
+    max-width: 310px;
+}
+
+/* ---------------- FINAL PHOTO ---------------- */
+
+.final-photo {
+    max-width: 350px;
+    max-height: 400px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+.final-caption {
+    font-size: 13px;
+    font-weight: bold;
+    margin-top: 10px;
+    max-width: 350px;
+}
+
+/* ---------------- FEEDBACK ---------------- */
+
+.feedback-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.feedback-main {
+    font-size: 15px;
+    font-weight: bold;
+    max-width: 350px;
+    line-height: 1.4;
+    margin-bottom: 15px;
+}
+
+.feedback-sub {
+    font-size: 12px;
+    color: #4a4e69;
+    max-width: 350px;
+    line-height: 1.5;
+}
+
+/* ---------------- FINAL ---------------- */
+
+.once-again {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.final-birthday {
+    font-size: 20px;
+    font-weight: bold;
+    color: #d90429;
+    margin: 10px 0;
+}
+
+.keep-smiling {
+    font-size: 14px;
+    font-style: italic;
+}
+
 </style>
 </head>
 
 <body>
 
-<div id="app"></div>
+<div id="screen"></div>
 
 <audio id="music" loop>
     <source src="sunehra.mp3" type="audio/mpeg">
@@ -159,387 +222,390 @@
 
 <script>
 
-const app = document.getElementById("app");
+/* =====================================================
+   SAME FLOW AS YOUR PYTHON CODE
+   ===================================================== */
+
+const screen = document.getElementById("screen");
 const music = document.getElementById("music");
 
 
-// ---------------- CLEAR SCREEN ----------------
+/* ---------------- CLEAR SCREEN ---------------- */
 
 function clearScreen() {
-    app.innerHTML = "";
+    screen.innerHTML = "";
 }
 
 
-// ---------------- OPENING ----------------
+/* ---------------- OPENING ---------------- */
 
 function startScreen() {
 
     clearScreen();
 
-    app.innerHTML = `
-        <div class="screen">
+    screen.innerHTML = `
 
-            <div class="question">
-                Do you want to see what I made for you?
-            </div>
+        <div class="opening-text">
+            Do you want to see what I made for you?
+        </div>
 
-            <div class="buttons">
+        <div class="button-row">
 
-                <button class="yes" onclick="birthdayScreen()">
-                    YES
-                </button>
+            <button
+                class="yes-button"
+                onclick="birthdayScreen()">
+                YES
+            </button>
 
-                <button class="no" onclick="noOpening()">
-                    NO
-                </button>
-
-            </div>
+            <button
+                class="no-button"
+                onclick="noOpening()">
+                NO
+            </button>
 
         </div>
+
     `;
 }
 
 
-// ---------------- OPENING NO ----------------
+/* ---------------- OPENING NO ---------------- */
 
 function noOpening() {
 
     clearScreen();
 
-    app.innerHTML = `
-        <div class="screen">
+    screen.innerHTML = `
 
-            <div class="question">
-                Are you sure?
-            </div>
-
-            <div class="buttons">
-
-                <button class="yes" onclick="birthdayScreen()">
-                    YES
-                </button>
-
-                <button class="no" onclick="startScreen()">
-                    NO
-                </button>
-
-            </div>
-
+        <div class="are-you-sure">
+            Are you sure?
         </div>
+
+        <button
+            class="yes-button"
+            onclick="birthdayScreen()">
+            YES
+        </button>
+
+        <button
+            class="no-button"
+            onclick="startScreen()">
+            NO
+        </button>
+
     `;
 }
 
 
-// ---------------- BIRTHDAY ----------------
+/* ---------------- BIRTHDAY ---------------- */
 
 function birthdayScreen() {
 
     clearScreen();
 
-    // Browser requires user interaction for music.
-    // Since this function is called after YES, music should start.
-    music.play().catch(() => {});
+    /* Music starts after YES */
+    music.play().catch(function() {});
 
-    app.innerHTML = `
-        <div class="screen">
+    screen.innerHTML = `
 
-            <div class="birthday">
-                HAPPY BIRTHDAY TO YOU
-            </div>
-
-            <div class="subtitle">
-                A little surprise, just for you.
-            </div>
-
+        <div class="birthday-title">
+            HAPPY BIRTHDAY TO YOU
         </div>
+
+        <div class="birthday-subtitle">
+            A little surprise, just for you.
+        </div>
+
     `;
 
     setTimeout(showPhoto1, 3000);
 }
 
 
-// ---------------- PHOTO 1 ----------------
+/* ---------------- PHOTO 1 ---------------- */
 
 function showPhoto1() {
 
     clearScreen();
 
-    app.innerHTML = `
-        <div class="screen">
+    screen.className = "photo-screen";
 
-            <img
-                src="photo1.jpg"
-                class="photo"
-                alt="Photo 1"
-                onerror="photoError()"
-            >
+    screen.innerHTML = `
 
-        </div>
+        <img
+            src="Photo1.jpg"
+            class="photo"
+            alt="Photo 1"
+            onerror="photoError()"
+        >
+
     `;
 
     setTimeout(showPhoto2, 5000);
 }
 
 
-// ---------------- PHOTO 2 ----------------
+/* ---------------- PHOTO 2 ---------------- */
 
 function showPhoto2() {
 
     clearScreen();
 
-    app.innerHTML = `
-        <div class="screen">
+    screen.className = "photo-screen";
 
-            <img
-                src="photo2.jpg"
-                class="photo"
-                alt="Photo 2"
-                onerror="photoError()"
-            >
+    screen.innerHTML = `
 
-        </div>
+        <img
+            src="Photo2.jpg"
+            class="photo"
+            alt="Photo 2"
+            onerror="photoError()"
+        >
+
     `;
 
     setTimeout(showShayari1, 5000);
 }
 
 
-// ---------------- PHOTO ERROR ----------------
+/* ---------------- PHOTO ERROR ---------------- */
 
 function photoError() {
 
     clearScreen();
 
-    app.innerHTML = `
-        <div class="screen">
+    screen.className = "";
 
-            <div class="normal-text">
-                Photo could not be loaded.<br><br>
-                Please check the file name.
-            </div>
+    screen.innerHTML = `
 
+        <div class="opening-text">
+            Photo could not be loaded.<br>
+            (Check file name)
         </div>
+
     `;
 
     setTimeout(showShayari1, 3000);
 }
 
 
-// ---------------- SHAYARI FUNCTION ----------------
+/* ---------------- SHAYARI DISPLAY ---------------- */
 
-function showShayari(text, small = false) {
+function showShayari(text, small, time, nextFunction) {
 
     clearScreen();
 
-    app.innerHTML = `
-        <div class="screen">
+    screen.className = "";
 
-            <div class="shayari-card">
+    screen.innerHTML = `
 
-                <div class="shayari ${small ? "small" : ""}">
-                    ${text}
-                </div>
+        <div class="shayari-card">
 
+            <div class="${small ? "shayari-text-small" : "shayari-text"}">
+                ${text}
             </div>
 
         </div>
+
     `;
+
+    setTimeout(nextFunction, time);
 }
 
 
-// ---------------- SHAYARI 1 ----------------
+/* ---------------- SHAYARI 1 ---------------- */
 
 function showShayari1() {
 
-    const text =
-`Teri hansi mein kuch aisi baat hai,
-Jise dekhu to dil ko milti ek khaas si rahat hai.`;
+    const text = `
+        Teri hansi mein kuch aisi baat hai,<br>
+        Jise dekhu to dil ko milti ek khaas si rahat hai.
+    `;
 
-    showShayari(text);
-
-    setTimeout(showShayari2, 4500);
+    showShayari(
+        text,
+        false,
+        4500,
+        showShayari2
+    );
 }
 
 
-// ---------------- SHAYARI 2 ----------------
+/* ---------------- SHAYARI 2 ---------------- */
 
 function showShayari2() {
 
-    const text =
-`Teri ek muskaan dil ko chhoo jaati hai,
-Bina kuch kahe hi bahut kuch keh jaati hai.`;
+    const text = `
+        Teri ek muskaan dil ko chhoo jaati hai,<br>
+        Bina kuch kahe hi bahut kuch keh jaati hai.
+    `;
 
-    showShayari(text);
-
-    setTimeout(showShayari3, 4500);
+    showShayari(
+        text,
+        false,
+        4500,
+        showShayari3
+    );
 }
 
 
-// ---------------- SHAYARI 3 ----------------
+/* ---------------- SHAYARI 3 ---------------- */
 
 function showShayari3() {
 
-    const text =
-`Aaj tere janmdin par bas itni si dua hai,
-Tere chehre ki ye hansi hamesha yun hi khili rahe.
+    const text = `
+        Aaj tere janmdin par bas itni si dua hai,<br>
+        Tere chehre ki ye hansi hamesha yun hi khili rahe.<br><br>
 
-Har subah tere liye khushiyon ki saugaat laaye,
-Aur teri ye muskaan har din aur bhi pyaari nazar aaye.`;
+        Har subah tere liye khushiyon ki saugaat laaye,<br>
+        Aur teri ye muskaan har din aur bhi pyaari nazar aaye.
+    `;
 
-    showShayari(text, true);
-
-    setTimeout(finalPhoto, 6500);
+    showShayari(
+        text,
+        true,
+        6500,
+        finalPhoto
+    );
 }
 
 
-// ---------------- FINAL PHOTO ----------------
+/* ---------------- FINAL PHOTO ---------------- */
 
 function finalPhoto() {
 
     clearScreen();
 
-    app.innerHTML = `
-        <div class="screen">
+    screen.className = "";
 
-            <img
-                src="photo2.jpg"
-                class="photo"
-                style="max-height:55vh;"
-                alt="Final Photo"
-                onerror="finalPhotoError()"
-            >
+    screen.innerHTML = `
 
-            <div class="photo-caption">
-                Ye hasi yunhi bekarar rahe.
-            </div>
+        <img
+            src="Photo2.jpg"
+            class="final-photo"
+            alt="Final Photo"
+        >
 
+        <div class="final-caption">
+            Ye hasi yunhi bekarar rahe.
         </div>
+
     `;
 
     setTimeout(feedbackScreen, 5000);
 }
 
 
-// ---------------- FINAL PHOTO ERROR ----------------
-
-function finalPhotoError() {
-    feedbackScreen();
-}
-
-
-// ---------------- FEEDBACK ----------------
+/* ---------------- FEEDBACK ---------------- */
 
 function feedbackScreen() {
 
     clearScreen();
 
-    app.innerHTML = `
-        <div class="screen">
+    screen.className = "";
 
-            <div class="question">
-                Did you like it?
-            </div>
+    screen.innerHTML = `
 
-            <div class="buttons">
+        <div class="feedback-title">
+            Did you like it?
+        </div>
 
-                <button class="yes" onclick="yesFeedback()">
-                    YES
-                </button>
+        <div class="button-row">
 
-                <button class="no" onclick="noFeedback()">
-                    NO
-                </button>
+            <button
+                class="yes-button"
+                onclick="yesFeedback()">
+                YES
+            </button>
 
-            </div>
+            <button
+                class="no-button"
+                onclick="noFeedback()">
+                NO
+            </button>
 
         </div>
+
     `;
 }
 
 
-// ---------------- YES FEEDBACK ----------------
+/* ---------------- YES FEEDBACK ---------------- */
 
 function yesFeedback() {
 
     clearScreen();
 
-    app.innerHTML = `
-        <div class="screen">
+    screen.innerHTML = `
 
-            <div class="question">
-                I'm glad you liked it.
-            </div>
-
-            <div class="normal-text">
-                But honestly...<br>
-                your smile was the only feedback I wanted.
-            </div>
-
+        <div class="feedback-main">
+            I'm glad you liked it.
         </div>
+
+        <div class="feedback-sub">
+            But honestly...<br>
+            your smile was the only feedback I wanted.
+        </div>
+
     `;
 
     setTimeout(finalEnding, 5000);
 }
 
 
-// ---------------- NO FEEDBACK ----------------
+/* ---------------- NO FEEDBACK ---------------- */
 
 function noFeedback() {
 
     clearScreen();
 
-    app.innerHTML = `
-        <div class="screen">
+    screen.innerHTML = `
 
-            <div class="normal-text">
-                Aww... I guess I couldn't<br>
-                make you smile this time.
-            </div>
-
-            <div class="normal-text" style="margin-top:20px;">
-                I'll make it better next time.
-            </div>
-
-            <button
-                class="yes"
-                onclick="feedbackScreen()"
-                style="margin-top:20px;"
-            >
-                TRY AGAIN
-            </button>
-
+        <div class="feedback-main">
+            Aww... I guess I couldn't<br>
+            make you smile this time.
         </div>
+
+        <div class="feedback-sub">
+            I'll make it better next time.
+        </div>
+
+        <button
+            class="yes-button"
+            onclick="feedbackScreen()"
+            style="margin-top:10px;">
+            TRY AGAIN
+        </button>
+
     `;
 }
 
 
-// ---------------- FINAL ENDING ----------------
+/* ---------------- FINAL ENDING ---------------- */
 
 function finalEnding() {
 
     clearScreen();
 
-    app.innerHTML = `
-        <div class="screen">
+    screen.innerHTML = `
 
-            <div class="normal-text">
-                Once again...
-            </div>
-
-            <div class="ending-title">
-                HAPPY BIRTHDAY
-            </div>
-
-            <div class="ending-text">
-                Keep smiling.
-            </div>
-
+        <div class="once-again">
+            Once again...
         </div>
+
+        <div class="final-birthday">
+            HAPPY BIRTHDAY
+        </div>
+
+        <div class="keep-smiling">
+            Keep smiling.
+        </div>
+
     `;
 }
 
 
-// ---------------- START ----------------
+/* ---------------- START ---------------- */
 
 startScreen();
 
