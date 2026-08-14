@@ -1,83 +1,547 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Birthday Surprise</title>
+<title>A Little Surprise</title>
 
 <style>
-body {
-    text-align: center;
-    font-family: Arial, sans-serif;
-    padding: 0;
-    margin: 0;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+    * {
+        box-sizing: border-box;
+    }
 
-.screen {
-    width: 90%;
-    max-width: 500px;
-}
+    body {
+        margin: 0;
+        padding: 0;
+        background: #fff0f3;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        color: #2b2d42;
+        overflow: hidden;
+    }
 
-button {
-    padding: 12px 25px;
-    margin: 10px;
-    font-size: 18px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-}
+    #app {
+        width: 100%;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .screen {
+        width: 100%;
+        max-width: 400px;
+        min-height: 100vh;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .question {
+        font-size: 22px;
+        font-weight: bold;
+        line-height: 1.4;
+        max-width: 350px;
+        margin-bottom: 30px;
+    }
+
+    .birthday {
+        font-size: 30px;
+        font-weight: bold;
+        color: #d90429;
+        line-height: 1.25;
+        max-width: 350px;
+    }
+
+    .subtitle {
+        font-size: 17px;
+        margin-top: 18px;
+        line-height: 1.5;
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    button {
+        border: none;
+        border-radius: 8px;
+        padding: 12px 28px;
+        font-size: 16px;
+        font-weight: bold;
+        color: white;
+        cursor: pointer;
+        min-width: 100px;
+    }
+
+    .yes {
+        background: #ff4d6d;
+    }
+
+    .no {
+        background: #8d99ae;
+    }
+
+    button:active {
+        transform: scale(0.96);
+    }
+
+    .photo {
+        max-width: 100%;
+        max-height: 70vh;
+        object-fit: contain;
+        border-radius: 10px;
+    }
+
+    .photo-caption {
+        font-size: 17px;
+        font-weight: bold;
+        margin-top: 18px;
+        line-height: 1.4;
+    }
+
+    .shayari-card {
+        width: 100%;
+        max-width: 350px;
+        min-height: 300px;
+        background: white;
+        border: 1px solid #ddd;
+        border-radius: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 25px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .shayari {
+        font-size: 18px;
+        font-style: italic;
+        line-height: 1.7;
+        white-space: pre-line;
+    }
+
+    .shayari.small {
+        font-size: 16px;
+        line-height: 1.7;
+    }
+
+    .ending-title {
+        font-size: 30px;
+        font-weight: bold;
+        color: #d90429;
+        margin: 15px 0;
+    }
+
+    .ending-text {
+        font-size: 20px;
+        font-style: italic;
+    }
+
+    .normal-text {
+        font-size: 18px;
+        line-height: 1.6;
+    }
 </style>
 </head>
 
 <body>
 
-<div class="screen" id="screen">
+<div id="app"></div>
 
-    <h2>Do you want to see what I made for you?</h2>
-
-    <button onclick="birthday()">YES</button>
-    <button onclick="alert('Are you sure?')">NO</button>
-
-</div>
+<audio id="music" loop>
+    <source src="sunehra.mp3" type="audio/mpeg">
+</audio>
 
 <script>
 
-function birthday() {
+const app = document.getElementById("app");
+const music = document.getElementById("music");
 
-    document.getElementById("screen").innerHTML =
 
-    "<h1>HAPPY BIRTHDAY TO YOU</h1>" +
+// ---------------- CLEAR SCREEN ----------------
 
-    "<p>A little surprise, just for you.</p>" +
-
-    "<button onclick='message()'>NEXT</button>";
+function clearScreen() {
+    app.innerHTML = "";
 }
 
 
-function message() {
+// ---------------- OPENING ----------------
 
-    document.getElementById("screen").innerHTML =
+function startScreen() {
 
-    "<h2>There is something more...</h2>" +
+    clearScreen();
 
-    "<p>This little surprise was made specially for you.</p>" +
+    app.innerHTML = `
+        <div class="screen">
 
-    "<button onclick='finalSurprise()'>NEXT</button>";
+            <div class="question">
+                Do you want to see what I made for you?
+            </div>
+
+            <div class="buttons">
+
+                <button class="yes" onclick="birthdayScreen()">
+                    YES
+                </button>
+
+                <button class="no" onclick="noOpening()">
+                    NO
+                </button>
+
+            </div>
+
+        </div>
+    `;
 }
 
 
-function finalSurprise() {
+// ---------------- OPENING NO ----------------
 
-    document.getElementById("screen").innerHTML =
+function noOpening() {
 
-    "<h1>✨ A Special Surprise ✨</h1>" +
+    clearScreen();
 
-    "<p>Keep smiling and enjoy your special day.</p>";
+    app.innerHTML = `
+        <div class="screen">
 
+            <div class="question">
+                Are you sure?
+            </div>
+
+            <div class="buttons">
+
+                <button class="yes" onclick="birthdayScreen()">
+                    YES
+                </button>
+
+                <button class="no" onclick="startScreen()">
+                    NO
+                </button>
+
+            </div>
+
+        </div>
+    `;
 }
+
+
+// ---------------- BIRTHDAY ----------------
+
+function birthdayScreen() {
+
+    clearScreen();
+
+    // Browser requires user interaction for music.
+    // Since this function is called after YES, music should start.
+    music.play().catch(() => {});
+
+    app.innerHTML = `
+        <div class="screen">
+
+            <div class="birthday">
+                HAPPY BIRTHDAY TO YOU
+            </div>
+
+            <div class="subtitle">
+                A little surprise, just for you.
+            </div>
+
+        </div>
+    `;
+
+    setTimeout(showPhoto1, 3000);
+}
+
+
+// ---------------- PHOTO 1 ----------------
+
+function showPhoto1() {
+
+    clearScreen();
+
+    app.innerHTML = `
+        <div class="screen">
+
+            <img
+                src="photo1.jpg"
+                class="photo"
+                alt="Photo 1"
+                onerror="photoError()"
+            >
+
+        </div>
+    `;
+
+    setTimeout(showPhoto2, 5000);
+}
+
+
+// ---------------- PHOTO 2 ----------------
+
+function showPhoto2() {
+
+    clearScreen();
+
+    app.innerHTML = `
+        <div class="screen">
+
+            <img
+                src="photo2.jpg"
+                class="photo"
+                alt="Photo 2"
+                onerror="photoError()"
+            >
+
+        </div>
+    `;
+
+    setTimeout(showShayari1, 5000);
+}
+
+
+// ---------------- PHOTO ERROR ----------------
+
+function photoError() {
+
+    clearScreen();
+
+    app.innerHTML = `
+        <div class="screen">
+
+            <div class="normal-text">
+                Photo could not be loaded.<br><br>
+                Please check the file name.
+            </div>
+
+        </div>
+    `;
+
+    setTimeout(showShayari1, 3000);
+}
+
+
+// ---------------- SHAYARI FUNCTION ----------------
+
+function showShayari(text, small = false) {
+
+    clearScreen();
+
+    app.innerHTML = `
+        <div class="screen">
+
+            <div class="shayari-card">
+
+                <div class="shayari ${small ? "small" : ""}">
+                    ${text}
+                </div>
+
+            </div>
+
+        </div>
+    `;
+}
+
+
+// ---------------- SHAYARI 1 ----------------
+
+function showShayari1() {
+
+    const text =
+`Teri hansi mein kuch aisi baat hai,
+Jise dekhu to dil ko milti ek khaas si rahat hai.`;
+
+    showShayari(text);
+
+    setTimeout(showShayari2, 4500);
+}
+
+
+// ---------------- SHAYARI 2 ----------------
+
+function showShayari2() {
+
+    const text =
+`Teri ek muskaan dil ko chhoo jaati hai,
+Bina kuch kahe hi bahut kuch keh jaati hai.`;
+
+    showShayari(text);
+
+    setTimeout(showShayari3, 4500);
+}
+
+
+// ---------------- SHAYARI 3 ----------------
+
+function showShayari3() {
+
+    const text =
+`Aaj tere janmdin par bas itni si dua hai,
+Tere chehre ki ye hansi hamesha yun hi khili rahe.
+
+Har subah tere liye khushiyon ki saugaat laaye,
+Aur teri ye muskaan har din aur bhi pyaari nazar aaye.`;
+
+    showShayari(text, true);
+
+    setTimeout(finalPhoto, 6500);
+}
+
+
+// ---------------- FINAL PHOTO ----------------
+
+function finalPhoto() {
+
+    clearScreen();
+
+    app.innerHTML = `
+        <div class="screen">
+
+            <img
+                src="photo2.jpg"
+                class="photo"
+                style="max-height:55vh;"
+                alt="Final Photo"
+                onerror="finalPhotoError()"
+            >
+
+            <div class="photo-caption">
+                Ye hasi yunhi bekarar rahe.
+            </div>
+
+        </div>
+    `;
+
+    setTimeout(feedbackScreen, 5000);
+}
+
+
+// ---------------- FINAL PHOTO ERROR ----------------
+
+function finalPhotoError() {
+    feedbackScreen();
+}
+
+
+// ---------------- FEEDBACK ----------------
+
+function feedbackScreen() {
+
+    clearScreen();
+
+    app.innerHTML = `
+        <div class="screen">
+
+            <div class="question">
+                Did you like it?
+            </div>
+
+            <div class="buttons">
+
+                <button class="yes" onclick="yesFeedback()">
+                    YES
+                </button>
+
+                <button class="no" onclick="noFeedback()">
+                    NO
+                </button>
+
+            </div>
+
+        </div>
+    `;
+}
+
+
+// ---------------- YES FEEDBACK ----------------
+
+function yesFeedback() {
+
+    clearScreen();
+
+    app.innerHTML = `
+        <div class="screen">
+
+            <div class="question">
+                I'm glad you liked it.
+            </div>
+
+            <div class="normal-text">
+                But honestly...<br>
+                your smile was the only feedback I wanted.
+            </div>
+
+        </div>
+    `;
+
+    setTimeout(finalEnding, 5000);
+}
+
+
+// ---------------- NO FEEDBACK ----------------
+
+function noFeedback() {
+
+    clearScreen();
+
+    app.innerHTML = `
+        <div class="screen">
+
+            <div class="normal-text">
+                Aww... I guess I couldn't<br>
+                make you smile this time.
+            </div>
+
+            <div class="normal-text" style="margin-top:20px;">
+                I'll make it better next time.
+            </div>
+
+            <button
+                class="yes"
+                onclick="feedbackScreen()"
+                style="margin-top:20px;"
+            >
+                TRY AGAIN
+            </button>
+
+        </div>
+    `;
+}
+
+
+// ---------------- FINAL ENDING ----------------
+
+function finalEnding() {
+
+    clearScreen();
+
+    app.innerHTML = `
+        <div class="screen">
+
+            <div class="normal-text">
+                Once again...
+            </div>
+
+            <div class="ending-title">
+                HAPPY BIRTHDAY
+            </div>
+
+            <div class="ending-text">
+                Keep smiling.
+            </div>
+
+        </div>
+    `;
+}
+
+
+// ---------------- START ----------------
+
+startScreen();
 
 </script>
 
