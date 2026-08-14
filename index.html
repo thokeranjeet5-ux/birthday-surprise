@@ -3,21 +3,82 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Birthday Surprise</title>
+
+<style>
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    padding: 0;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.screen {
+    width: 90%;
+    max-width: 500px;
+}
+
+button {
+    padding: 12px 25px;
+    margin: 10px;
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+</style>
 </head>
 
-<body style="text-align:center; font-family:Arial; padding-top:150px;">
+<body>
 
-<h2>Do you want to see what I made for you?</h2>
+<div class="screen" id="screen">
 
-<button onclick="birthday()">YES</button>
-<button onclick="alert('Are you sure?')">NO</button>
+    <h2>Do you want to see what I made for you?</h2>
+
+    <button onclick="birthday()">YES</button>
+    <button onclick="alert('Are you sure?')">NO</button>
+
+</div>
 
 <script>
+
 function birthday() {
-    document.body.innerHTML =
+
+    document.getElementById("screen").innerHTML =
+
     "<h1>HAPPY BIRTHDAY TO YOU</h1>" +
-    "<p>A little surprise, just for you.</p>";
+
+    "<p>A little surprise, just for you.</p>" +
+
+    "<button onclick='message()'>NEXT</button>";
 }
+
+
+function message() {
+
+    document.getElementById("screen").innerHTML =
+
+    "<h2>There is something more...</h2>" +
+
+    "<p>This little surprise was made specially for you.</p>" +
+
+    "<button onclick='finalSurprise()'>NEXT</button>";
+}
+
+
+function finalSurprise() {
+
+    document.getElementById("screen").innerHTML =
+
+    "<h1>✨ A Special Surprise ✨</h1>" +
+
+    "<p>Keep smiling and enjoy your special day.</p>";
+
+}
+
 </script>
 
 </body>
